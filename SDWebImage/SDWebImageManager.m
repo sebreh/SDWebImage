@@ -104,7 +104,7 @@
             __block id<SDWebImageOperation> subOperation = [self.imageDownloader downloadImageWithURL:url options:downloaderOptions progress:progressBlock completed:^(UIImage *downloadedImage, NSData *data, NSError *error, BOOL finished)
             {
                 if (weakOperation.cancelled) {
-                  completedBlock(nil, nil, SDImageCacheTypeNone, NO);
+                  completedBlock(nil, nil, SDImageCacheTypeNone, finished);
                 } else {
                   completedBlock(downloadedImage, error, SDImageCacheTypeNone, finished);
                 }
